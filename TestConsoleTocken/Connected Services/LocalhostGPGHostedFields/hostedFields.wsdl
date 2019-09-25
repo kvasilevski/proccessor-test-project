@@ -1,0 +1,1516 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="myUserName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JavascriptFiletoSave">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="JavascriptFiletoSaveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="JavascriptFiletoSaveResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitFieldData">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="countryAbb" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardNumber" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="month" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="year" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SubmitFieldDataResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubmitFieldDataResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createJson">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="strr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="createJsonResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="IsTokenValid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="tokenValue" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="IsCheckExpire" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="IsTokenValidResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="IsTokenValidResult" type="tns:TokenCheckResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TokenCheckResponse">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="statusCode" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="statusText" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetTempToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiPassword" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTempTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetTempTokenResult" type="tns:TokenResponse" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="TokenResponse">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Token" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Status" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Created" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="GetCCToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCCTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetCCTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFinalCCToken">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="clientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="apiPassword" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ipAddress" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="firstName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="lastName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="postalCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="countryAbb" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="address" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="city" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payload" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="cardExpiry" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CVV" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetFinalCCTokenResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GetFinalCCTokenResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetJWT">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetJWTResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetConfig">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetConfigResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GenerateKeyPairAndGuid">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="IsTest" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GenerateKeyPairAndGuidResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTokenizewithCustomerProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestObject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTokenizewithCustomerProfileResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateCustomerProfileUsingJSSDK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestObject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomerProfileUsingJSSDKResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="UpdateCustomerProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestObject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateCustomerProfileResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCustomerProfileUsingJSSDK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestObject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerProfileUsingJSSDKResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetCustomerProfile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="APIUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APIPW" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="CCToken" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetCustomerProfileResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTokenize">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Payload" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="KountSessionID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTokenizeResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTokenListUsingJSSDK">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RequestObject" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTokenListUsingJSSDKResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="GetTokenList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="APIUserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="APIPW" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ClientID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="EmployeeID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetTokenListResponse">
+        <s:complexType />
+      </s:element>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="boolean" type="s:boolean" />
+      <s:element name="TokenCheckResponse" nillable="true" type="tns:TokenCheckResponse" />
+      <s:element name="TokenResponse" nillable="true" type="tns:TokenResponse" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="JavascriptFiletoSaveSoapIn">
+    <wsdl:part name="parameters" element="tns:JavascriptFiletoSave" />
+  </wsdl:message>
+  <wsdl:message name="JavascriptFiletoSaveSoapOut">
+    <wsdl:part name="parameters" element="tns:JavascriptFiletoSaveResponse" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFieldDataSoapIn">
+    <wsdl:part name="parameters" element="tns:SubmitFieldData" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFieldDataSoapOut">
+    <wsdl:part name="parameters" element="tns:SubmitFieldDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="createJsonSoapIn">
+    <wsdl:part name="parameters" element="tns:createJson" />
+  </wsdl:message>
+  <wsdl:message name="createJsonSoapOut">
+    <wsdl:part name="parameters" element="tns:createJsonResponse" />
+  </wsdl:message>
+  <wsdl:message name="IsTokenValidSoapIn">
+    <wsdl:part name="parameters" element="tns:IsTokenValid" />
+  </wsdl:message>
+  <wsdl:message name="IsTokenValidSoapOut">
+    <wsdl:part name="parameters" element="tns:IsTokenValidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTempTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTempToken" />
+  </wsdl:message>
+  <wsdl:message name="GetTempTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTempTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCCTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCCToken" />
+  </wsdl:message>
+  <wsdl:message name="GetCCTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCCTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetFinalCCTokenSoapIn">
+    <wsdl:part name="parameters" element="tns:GetFinalCCToken" />
+  </wsdl:message>
+  <wsdl:message name="GetFinalCCTokenSoapOut">
+    <wsdl:part name="parameters" element="tns:GetFinalCCTokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetJWTSoapIn">
+    <wsdl:part name="parameters" element="tns:GetJWT" />
+  </wsdl:message>
+  <wsdl:message name="GetJWTSoapOut">
+    <wsdl:part name="parameters" element="tns:GetJWTResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigSoapIn">
+    <wsdl:part name="parameters" element="tns:GetConfig" />
+  </wsdl:message>
+  <wsdl:message name="GetConfigSoapOut">
+    <wsdl:part name="parameters" element="tns:GetConfigResponse" />
+  </wsdl:message>
+  <wsdl:message name="GenerateKeyPairAndGuidSoapIn">
+    <wsdl:part name="parameters" element="tns:GenerateKeyPairAndGuid" />
+  </wsdl:message>
+  <wsdl:message name="GenerateKeyPairAndGuidSoapOut">
+    <wsdl:part name="parameters" element="tns:GenerateKeyPairAndGuidResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenizewithCustomerProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTokenizewithCustomerProfile" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenizewithCustomerProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTokenizewithCustomerProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerProfileUsingJSSDKSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerProfileUsingJSSDK" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerProfileUsingJSSDKSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerProfileUsingJSSDKResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerProfile" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateCustomerProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerProfileUsingJSSDKSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerProfileUsingJSSDK" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerProfileUsingJSSDKSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerProfileUsingJSSDKResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerProfileSoapIn">
+    <wsdl:part name="parameters" element="tns:GetCustomerProfile" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerProfileSoapOut">
+    <wsdl:part name="parameters" element="tns:GetCustomerProfileResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenizeSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTokenize" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenizeSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTokenizeResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenListUsingJSSDKSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTokenListUsingJSSDK" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenListUsingJSSDKSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTokenListUsingJSSDKResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenListSoapIn">
+    <wsdl:part name="parameters" element="tns:GetTokenList" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenListSoapOut">
+    <wsdl:part name="parameters" element="tns:GetTokenListResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn">
+    <wsdl:part name="myUserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="JavascriptFiletoSaveHttpGetIn">
+    <wsdl:part name="fileName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="JavascriptFiletoSaveHttpGetOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFieldDataHttpGetIn">
+    <wsdl:part name="ipAddress" type="s:string" />
+    <wsdl:part name="firstName" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="postalCode" type="s:string" />
+    <wsdl:part name="countryAbb" type="s:string" />
+    <wsdl:part name="address" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="cardNumber" type="s:string" />
+    <wsdl:part name="month" type="s:string" />
+    <wsdl:part name="year" type="s:string" />
+    <wsdl:part name="cardCode" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFieldDataHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="createJsonHttpGetIn">
+    <wsdl:part name="strr" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="createJsonHttpGetOut" />
+  <wsdl:message name="IsTokenValidHttpGetIn">
+    <wsdl:part name="tokenValue" type="s:string" />
+    <wsdl:part name="IsCheckExpire" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsTokenValidHttpGetOut">
+    <wsdl:part name="Body" element="tns:TokenCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTempTokenHttpGetIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="apiUserName" type="s:string" />
+    <wsdl:part name="apiPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTempTokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:TokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCCTokenHttpGetIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCCTokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFinalCCTokenHttpGetIn">
+    <wsdl:part name="clientID" type="s:string" />
+    <wsdl:part name="apiUserName" type="s:string" />
+    <wsdl:part name="apiPassword" type="s:string" />
+    <wsdl:part name="ipAddress" type="s:string" />
+    <wsdl:part name="firstName" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="postalCode" type="s:string" />
+    <wsdl:part name="countryAbb" type="s:string" />
+    <wsdl:part name="address" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="payload" type="s:string" />
+    <wsdl:part name="cardExpiry" type="s:string" />
+    <wsdl:part name="CVV" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFinalCCTokenHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJWTHttpGetIn" />
+  <wsdl:message name="GetJWTHttpGetOut" />
+  <wsdl:message name="GetConfigHttpGetIn" />
+  <wsdl:message name="GetConfigHttpGetOut" />
+  <wsdl:message name="GenerateKeyPairAndGuidHttpGetIn">
+    <wsdl:part name="IsTest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerateKeyPairAndGuidHttpGetOut" />
+  <wsdl:message name="GetTokenizewithCustomerProfileHttpGetIn">
+    <wsdl:part name="RequestObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenizewithCustomerProfileHttpGetOut" />
+  <wsdl:message name="UpdateCustomerProfileUsingJSSDKHttpGetIn">
+    <wsdl:part name="RequestObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerProfileUsingJSSDKHttpGetOut" />
+  <wsdl:message name="UpdateCustomerProfileHttpGetIn">
+    <wsdl:part name="RequestObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerProfileHttpGetOut" />
+  <wsdl:message name="GetCustomerProfileUsingJSSDKHttpGetIn">
+    <wsdl:part name="RequestObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerProfileUsingJSSDKHttpGetOut" />
+  <wsdl:message name="GetCustomerProfileHttpGetIn">
+    <wsdl:part name="APIUserName" type="s:string" />
+    <wsdl:part name="APIPW" type="s:string" />
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="CCToken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerProfileHttpGetOut" />
+  <wsdl:message name="GetTokenizeHttpGetIn">
+    <wsdl:part name="Payload" type="s:string" />
+    <wsdl:part name="KountSessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenizeHttpGetOut" />
+  <wsdl:message name="GetTokenListUsingJSSDKHttpGetIn">
+    <wsdl:part name="RequestObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenListUsingJSSDKHttpGetOut" />
+  <wsdl:message name="GetTokenListHttpGetIn">
+    <wsdl:part name="APIUserName" type="s:string" />
+    <wsdl:part name="APIPW" type="s:string" />
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="EmployeeID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenListHttpGetOut" />
+  <wsdl:message name="HelloWorldHttpPostIn">
+    <wsdl:part name="myUserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="JavascriptFiletoSaveHttpPostIn">
+    <wsdl:part name="fileName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="JavascriptFiletoSaveHttpPostOut">
+    <wsdl:part name="Body" element="tns:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFieldDataHttpPostIn">
+    <wsdl:part name="ipAddress" type="s:string" />
+    <wsdl:part name="firstName" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="postalCode" type="s:string" />
+    <wsdl:part name="countryAbb" type="s:string" />
+    <wsdl:part name="address" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="cardNumber" type="s:string" />
+    <wsdl:part name="month" type="s:string" />
+    <wsdl:part name="year" type="s:string" />
+    <wsdl:part name="cardCode" type="s:string" />
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SubmitFieldDataHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="createJsonHttpPostIn">
+    <wsdl:part name="strr" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="createJsonHttpPostOut" />
+  <wsdl:message name="IsTokenValidHttpPostIn">
+    <wsdl:part name="tokenValue" type="s:string" />
+    <wsdl:part name="IsCheckExpire" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="IsTokenValidHttpPostOut">
+    <wsdl:part name="Body" element="tns:TokenCheckResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetTempTokenHttpPostIn">
+    <wsdl:part name="clientId" type="s:string" />
+    <wsdl:part name="apiUserName" type="s:string" />
+    <wsdl:part name="apiPassword" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTempTokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:TokenResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCCTokenHttpPostIn">
+    <wsdl:part name="token" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCCTokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFinalCCTokenHttpPostIn">
+    <wsdl:part name="clientID" type="s:string" />
+    <wsdl:part name="apiUserName" type="s:string" />
+    <wsdl:part name="apiPassword" type="s:string" />
+    <wsdl:part name="ipAddress" type="s:string" />
+    <wsdl:part name="firstName" type="s:string" />
+    <wsdl:part name="lastName" type="s:string" />
+    <wsdl:part name="postalCode" type="s:string" />
+    <wsdl:part name="countryAbb" type="s:string" />
+    <wsdl:part name="address" type="s:string" />
+    <wsdl:part name="city" type="s:string" />
+    <wsdl:part name="payload" type="s:string" />
+    <wsdl:part name="cardExpiry" type="s:string" />
+    <wsdl:part name="CVV" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetFinalCCTokenHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="GetJWTHttpPostIn" />
+  <wsdl:message name="GetJWTHttpPostOut" />
+  <wsdl:message name="GetConfigHttpPostIn" />
+  <wsdl:message name="GetConfigHttpPostOut" />
+  <wsdl:message name="GenerateKeyPairAndGuidHttpPostIn">
+    <wsdl:part name="IsTest" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GenerateKeyPairAndGuidHttpPostOut" />
+  <wsdl:message name="GetTokenizewithCustomerProfileHttpPostIn">
+    <wsdl:part name="RequestObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenizewithCustomerProfileHttpPostOut" />
+  <wsdl:message name="UpdateCustomerProfileUsingJSSDKHttpPostIn">
+    <wsdl:part name="RequestObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerProfileUsingJSSDKHttpPostOut" />
+  <wsdl:message name="UpdateCustomerProfileHttpPostIn">
+    <wsdl:part name="RequestObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="UpdateCustomerProfileHttpPostOut" />
+  <wsdl:message name="GetCustomerProfileUsingJSSDKHttpPostIn">
+    <wsdl:part name="RequestObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerProfileUsingJSSDKHttpPostOut" />
+  <wsdl:message name="GetCustomerProfileHttpPostIn">
+    <wsdl:part name="APIUserName" type="s:string" />
+    <wsdl:part name="APIPW" type="s:string" />
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="CCToken" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetCustomerProfileHttpPostOut" />
+  <wsdl:message name="GetTokenizeHttpPostIn">
+    <wsdl:part name="Payload" type="s:string" />
+    <wsdl:part name="KountSessionID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenizeHttpPostOut" />
+  <wsdl:message name="GetTokenListUsingJSSDKHttpPostIn">
+    <wsdl:part name="RequestObject" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenListUsingJSSDKHttpPostOut" />
+  <wsdl:message name="GetTokenListHttpPostIn">
+    <wsdl:part name="APIUserName" type="s:string" />
+    <wsdl:part name="APIPW" type="s:string" />
+    <wsdl:part name="ClientID" type="s:string" />
+    <wsdl:part name="EmployeeID" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetTokenListHttpPostOut" />
+  <wsdl:portType name="hostedFieldsSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JavascriptFiletoSave">
+      <wsdl:input message="tns:JavascriptFiletoSaveSoapIn" />
+      <wsdl:output message="tns:JavascriptFiletoSaveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFieldData">
+      <wsdl:input message="tns:SubmitFieldDataSoapIn" />
+      <wsdl:output message="tns:SubmitFieldDataSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createJson">
+      <wsdl:input message="tns:createJsonSoapIn" />
+      <wsdl:output message="tns:createJsonSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsTokenValid">
+      <wsdl:input message="tns:IsTokenValidSoapIn" />
+      <wsdl:output message="tns:IsTokenValidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTempToken">
+      <wsdl:input message="tns:GetTempTokenSoapIn" />
+      <wsdl:output message="tns:GetTempTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCCToken">
+      <wsdl:input message="tns:GetCCTokenSoapIn" />
+      <wsdl:output message="tns:GetCCTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalCCToken">
+      <wsdl:input message="tns:GetFinalCCTokenSoapIn" />
+      <wsdl:output message="tns:GetFinalCCTokenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJWT">
+      <wsdl:input message="tns:GetJWTSoapIn" />
+      <wsdl:output message="tns:GetJWTSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <wsdl:input message="tns:GetConfigSoapIn" />
+      <wsdl:output message="tns:GetConfigSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateKeyPairAndGuid">
+      <wsdl:input message="tns:GenerateKeyPairAndGuidSoapIn" />
+      <wsdl:output message="tns:GenerateKeyPairAndGuidSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenizewithCustomerProfile">
+      <wsdl:input message="tns:GetTokenizewithCustomerProfileSoapIn" />
+      <wsdl:output message="tns:GetTokenizewithCustomerProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfileUsingJSSDK">
+      <wsdl:input message="tns:UpdateCustomerProfileUsingJSSDKSoapIn" />
+      <wsdl:output message="tns:UpdateCustomerProfileUsingJSSDKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfile">
+      <wsdl:input message="tns:UpdateCustomerProfileSoapIn" />
+      <wsdl:output message="tns:UpdateCustomerProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfileUsingJSSDK">
+      <wsdl:input message="tns:GetCustomerProfileUsingJSSDKSoapIn" />
+      <wsdl:output message="tns:GetCustomerProfileUsingJSSDKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfile">
+      <wsdl:input message="tns:GetCustomerProfileSoapIn" />
+      <wsdl:output message="tns:GetCustomerProfileSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenize">
+      <wsdl:input message="tns:GetTokenizeSoapIn" />
+      <wsdl:output message="tns:GetTokenizeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenListUsingJSSDK">
+      <wsdl:input message="tns:GetTokenListUsingJSSDKSoapIn" />
+      <wsdl:output message="tns:GetTokenListUsingJSSDKSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenList">
+      <wsdl:input message="tns:GetTokenListSoapIn" />
+      <wsdl:output message="tns:GetTokenListSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="hostedFieldsHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JavascriptFiletoSave">
+      <wsdl:input message="tns:JavascriptFiletoSaveHttpGetIn" />
+      <wsdl:output message="tns:JavascriptFiletoSaveHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFieldData">
+      <wsdl:input message="tns:SubmitFieldDataHttpGetIn" />
+      <wsdl:output message="tns:SubmitFieldDataHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createJson">
+      <wsdl:input message="tns:createJsonHttpGetIn" />
+      <wsdl:output message="tns:createJsonHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsTokenValid">
+      <wsdl:input message="tns:IsTokenValidHttpGetIn" />
+      <wsdl:output message="tns:IsTokenValidHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTempToken">
+      <wsdl:input message="tns:GetTempTokenHttpGetIn" />
+      <wsdl:output message="tns:GetTempTokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCCToken">
+      <wsdl:input message="tns:GetCCTokenHttpGetIn" />
+      <wsdl:output message="tns:GetCCTokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalCCToken">
+      <wsdl:input message="tns:GetFinalCCTokenHttpGetIn" />
+      <wsdl:output message="tns:GetFinalCCTokenHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJWT">
+      <wsdl:input message="tns:GetJWTHttpGetIn" />
+      <wsdl:output message="tns:GetJWTHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <wsdl:input message="tns:GetConfigHttpGetIn" />
+      <wsdl:output message="tns:GetConfigHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateKeyPairAndGuid">
+      <wsdl:input message="tns:GenerateKeyPairAndGuidHttpGetIn" />
+      <wsdl:output message="tns:GenerateKeyPairAndGuidHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenizewithCustomerProfile">
+      <wsdl:input message="tns:GetTokenizewithCustomerProfileHttpGetIn" />
+      <wsdl:output message="tns:GetTokenizewithCustomerProfileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfileUsingJSSDK">
+      <wsdl:input message="tns:UpdateCustomerProfileUsingJSSDKHttpGetIn" />
+      <wsdl:output message="tns:UpdateCustomerProfileUsingJSSDKHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfile">
+      <wsdl:input message="tns:UpdateCustomerProfileHttpGetIn" />
+      <wsdl:output message="tns:UpdateCustomerProfileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfileUsingJSSDK">
+      <wsdl:input message="tns:GetCustomerProfileUsingJSSDKHttpGetIn" />
+      <wsdl:output message="tns:GetCustomerProfileUsingJSSDKHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfile">
+      <wsdl:input message="tns:GetCustomerProfileHttpGetIn" />
+      <wsdl:output message="tns:GetCustomerProfileHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenize">
+      <wsdl:input message="tns:GetTokenizeHttpGetIn" />
+      <wsdl:output message="tns:GetTokenizeHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenListUsingJSSDK">
+      <wsdl:input message="tns:GetTokenListUsingJSSDKHttpGetIn" />
+      <wsdl:output message="tns:GetTokenListUsingJSSDKHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenList">
+      <wsdl:input message="tns:GetTokenListHttpGetIn" />
+      <wsdl:output message="tns:GetTokenListHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="hostedFieldsHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="JavascriptFiletoSave">
+      <wsdl:input message="tns:JavascriptFiletoSaveHttpPostIn" />
+      <wsdl:output message="tns:JavascriptFiletoSaveHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFieldData">
+      <wsdl:input message="tns:SubmitFieldDataHttpPostIn" />
+      <wsdl:output message="tns:SubmitFieldDataHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="createJson">
+      <wsdl:input message="tns:createJsonHttpPostIn" />
+      <wsdl:output message="tns:createJsonHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="IsTokenValid">
+      <wsdl:input message="tns:IsTokenValidHttpPostIn" />
+      <wsdl:output message="tns:IsTokenValidHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTempToken">
+      <wsdl:input message="tns:GetTempTokenHttpPostIn" />
+      <wsdl:output message="tns:GetTempTokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCCToken">
+      <wsdl:input message="tns:GetCCTokenHttpPostIn" />
+      <wsdl:output message="tns:GetCCTokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalCCToken">
+      <wsdl:input message="tns:GetFinalCCTokenHttpPostIn" />
+      <wsdl:output message="tns:GetFinalCCTokenHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetJWT">
+      <wsdl:input message="tns:GetJWTHttpPostIn" />
+      <wsdl:output message="tns:GetJWTHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <wsdl:input message="tns:GetConfigHttpPostIn" />
+      <wsdl:output message="tns:GetConfigHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateKeyPairAndGuid">
+      <wsdl:input message="tns:GenerateKeyPairAndGuidHttpPostIn" />
+      <wsdl:output message="tns:GenerateKeyPairAndGuidHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenizewithCustomerProfile">
+      <wsdl:input message="tns:GetTokenizewithCustomerProfileHttpPostIn" />
+      <wsdl:output message="tns:GetTokenizewithCustomerProfileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfileUsingJSSDK">
+      <wsdl:input message="tns:UpdateCustomerProfileUsingJSSDKHttpPostIn" />
+      <wsdl:output message="tns:UpdateCustomerProfileUsingJSSDKHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfile">
+      <wsdl:input message="tns:UpdateCustomerProfileHttpPostIn" />
+      <wsdl:output message="tns:UpdateCustomerProfileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfileUsingJSSDK">
+      <wsdl:input message="tns:GetCustomerProfileUsingJSSDKHttpPostIn" />
+      <wsdl:output message="tns:GetCustomerProfileUsingJSSDKHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfile">
+      <wsdl:input message="tns:GetCustomerProfileHttpPostIn" />
+      <wsdl:output message="tns:GetCustomerProfileHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenize">
+      <wsdl:input message="tns:GetTokenizeHttpPostIn" />
+      <wsdl:output message="tns:GetTokenizeHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenListUsingJSSDK">
+      <wsdl:input message="tns:GetTokenListUsingJSSDKHttpPostIn" />
+      <wsdl:output message="tns:GetTokenListUsingJSSDKHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenList">
+      <wsdl:input message="tns:GetTokenListHttpPostIn" />
+      <wsdl:output message="tns:GetTokenListHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="hostedFieldsSoap" type="tns:hostedFieldsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JavascriptFiletoSave">
+      <soap:operation soapAction="http://tempuri.org/JavascriptFiletoSave" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFieldData">
+      <soap:operation soapAction="http://tempuri.org/SubmitFieldData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createJson">
+      <soap:operation soapAction="http://tempuri.org/createJson" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsTokenValid">
+      <soap:operation soapAction="http://tempuri.org/IsTokenValid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTempToken">
+      <soap:operation soapAction="http://tempuri.org/GetTempToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCToken">
+      <soap:operation soapAction="http://tempuri.org/GetCCToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalCCToken">
+      <soap:operation soapAction="http://tempuri.org/GetFinalCCToken" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJWT">
+      <soap:operation soapAction="http://tempuri.org/GetJWT" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <soap:operation soapAction="http://tempuri.org/GetConfig" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateKeyPairAndGuid">
+      <soap:operation soapAction="http://tempuri.org/GenerateKeyPairAndGuid" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenizewithCustomerProfile">
+      <soap:operation soapAction="http://tempuri.org/GetTokenizewithCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfileUsingJSSDK">
+      <soap:operation soapAction="http://tempuri.org/UpdateCustomerProfileUsingJSSDK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfile">
+      <soap:operation soapAction="http://tempuri.org/UpdateCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfileUsingJSSDK">
+      <soap:operation soapAction="http://tempuri.org/GetCustomerProfileUsingJSSDK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfile">
+      <soap:operation soapAction="http://tempuri.org/GetCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenize">
+      <soap:operation soapAction="http://tempuri.org/GetTokenize" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenListUsingJSSDK">
+      <soap:operation soapAction="http://tempuri.org/GetTokenListUsingJSSDK" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenList">
+      <soap:operation soapAction="http://tempuri.org/GetTokenList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="hostedFieldsSoap12" type="tns:hostedFieldsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JavascriptFiletoSave">
+      <soap12:operation soapAction="http://tempuri.org/JavascriptFiletoSave" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFieldData">
+      <soap12:operation soapAction="http://tempuri.org/SubmitFieldData" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createJson">
+      <soap12:operation soapAction="http://tempuri.org/createJson" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="IsTokenValid">
+      <soap12:operation soapAction="http://tempuri.org/IsTokenValid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTempToken">
+      <soap12:operation soapAction="http://tempuri.org/GetTempToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCToken">
+      <soap12:operation soapAction="http://tempuri.org/GetCCToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalCCToken">
+      <soap12:operation soapAction="http://tempuri.org/GetFinalCCToken" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJWT">
+      <soap12:operation soapAction="http://tempuri.org/GetJWT" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <soap12:operation soapAction="http://tempuri.org/GetConfig" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateKeyPairAndGuid">
+      <soap12:operation soapAction="http://tempuri.org/GenerateKeyPairAndGuid" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenizewithCustomerProfile">
+      <soap12:operation soapAction="http://tempuri.org/GetTokenizewithCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfileUsingJSSDK">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCustomerProfileUsingJSSDK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfile">
+      <soap12:operation soapAction="http://tempuri.org/UpdateCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfileUsingJSSDK">
+      <soap12:operation soapAction="http://tempuri.org/GetCustomerProfileUsingJSSDK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfile">
+      <soap12:operation soapAction="http://tempuri.org/GetCustomerProfile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenize">
+      <soap12:operation soapAction="http://tempuri.org/GetTokenize" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenListUsingJSSDK">
+      <soap12:operation soapAction="http://tempuri.org/GetTokenListUsingJSSDK" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenList">
+      <soap12:operation soapAction="http://tempuri.org/GetTokenList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="hostedFieldsHttpGet" type="tns:hostedFieldsHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JavascriptFiletoSave">
+      <http:operation location="/JavascriptFiletoSave" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFieldData">
+      <http:operation location="/SubmitFieldData" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createJson">
+      <http:operation location="/createJson" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="IsTokenValid">
+      <http:operation location="/IsTokenValid" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTempToken">
+      <http:operation location="/GetTempToken" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCToken">
+      <http:operation location="/GetCCToken" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalCCToken">
+      <http:operation location="/GetFinalCCToken" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJWT">
+      <http:operation location="/GetJWT" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <http:operation location="/GetConfig" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateKeyPairAndGuid">
+      <http:operation location="/GenerateKeyPairAndGuid" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenizewithCustomerProfile">
+      <http:operation location="/GetTokenizewithCustomerProfile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfileUsingJSSDK">
+      <http:operation location="/UpdateCustomerProfileUsingJSSDK" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfile">
+      <http:operation location="/UpdateCustomerProfile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfileUsingJSSDK">
+      <http:operation location="/GetCustomerProfileUsingJSSDK" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfile">
+      <http:operation location="/GetCustomerProfile" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenize">
+      <http:operation location="/GetTokenize" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenListUsingJSSDK">
+      <http:operation location="/GetTokenListUsingJSSDK" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenList">
+      <http:operation location="/GetTokenList" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="hostedFieldsHttpPost" type="tns:hostedFieldsHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="JavascriptFiletoSave">
+      <http:operation location="/JavascriptFiletoSave" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitFieldData">
+      <http:operation location="/SubmitFieldData" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="createJson">
+      <http:operation location="/createJson" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="IsTokenValid">
+      <http:operation location="/IsTokenValid" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTempToken">
+      <http:operation location="/GetTempToken" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCCToken">
+      <http:operation location="/GetCCToken" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFinalCCToken">
+      <http:operation location="/GetFinalCCToken" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetJWT">
+      <http:operation location="/GetJWT" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetConfig">
+      <http:operation location="/GetConfig" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateKeyPairAndGuid">
+      <http:operation location="/GenerateKeyPairAndGuid" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenizewithCustomerProfile">
+      <http:operation location="/GetTokenizewithCustomerProfile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfileUsingJSSDK">
+      <http:operation location="/UpdateCustomerProfileUsingJSSDK" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCustomerProfile">
+      <http:operation location="/UpdateCustomerProfile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfileUsingJSSDK">
+      <http:operation location="/GetCustomerProfileUsingJSSDK" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetCustomerProfile">
+      <http:operation location="/GetCustomerProfile" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenize">
+      <http:operation location="/GetTokenize" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenListUsingJSSDK">
+      <http:operation location="/GetTokenListUsingJSSDK" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+    <wsdl:operation name="GetTokenList">
+      <http:operation location="/GetTokenList" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output />
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="hostedFields">
+    <wsdl:port name="hostedFieldsSoap" binding="tns:hostedFieldsSoap">
+      <soap:address location="https://localhost:44398/hostedFields.asmx" />
+    </wsdl:port>
+    <wsdl:port name="hostedFieldsSoap12" binding="tns:hostedFieldsSoap12">
+      <soap12:address location="https://localhost:44398/hostedFields.asmx" />
+    </wsdl:port>
+    <wsdl:port name="hostedFieldsHttpGet" binding="tns:hostedFieldsHttpGet">
+      <http:address location="https://localhost:44398/hostedFields.asmx" />
+    </wsdl:port>
+    <wsdl:port name="hostedFieldsHttpPost" binding="tns:hostedFieldsHttpPost">
+      <http:address location="https://localhost:44398/hostedFields.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
